@@ -57,24 +57,23 @@ int main() {
     int e = 3;
     int d = 7;
 
-    char msg[100];
-    printf("Enter lowercase message: ");
-    scanf("%s", msg);
-
-    int len = strlen(msg);
+    char text[100];
+    printf("Enter message: ");
+    scanf("%s",text);
+    int len = strlen(text);
     long long enc[100];
 
     printf("\nEncrypted:\n");
     for (int i = 0; i < len; i++) {
-        int m = msg[i] - 'a';    // convert to 0–25
+        int m = text[i] - 'a';     // convert character to 0–25
         enc[i] = power(m, e, n);
         printf("%lld ", enc[i]);
     }
 
     printf("\n\nDecrypted:\n");
     for (int i = 0; i < len; i++) {
-        int dec = power(enc[i], d, n);  
-        printf("%c", dec + 'a');        // convert back to letter
+        int dec = power(enc[i], d, n);
+        printf("%c", dec + 'a');   // convert number back to character
     }
 
     printf("\n");
